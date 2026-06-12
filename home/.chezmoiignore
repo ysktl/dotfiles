@@ -1,22 +1,28 @@
 {{ if (eq .chezmoi.os "linux") }}
-{{    if eq .distro "debian" }}
+{{    if eq .chezmoi.osRelease.id "debian" }}
 
 .config/fcitx5/
 .config/ghostty/
 .config/niri/
 .config/noctalia/
 
-{{    else if eq .distro "arch" }}
+{{    else if eq .chezmoi.osRelease.id "arch" }}
 
 nix/
 
-{{    else if eq .distro "fedora" }}
+{{    else if eq .chezmoi.osRelease.id "fedora" }}
 
 .config/niri/
 .config/noctalia/
 nix/
 
-{{    else if eq .distro "opensuse*" }}
+{{    else if eq .chezmoi.osRelease.id "opensuse*" }}
+
+.config/niri/
+.config/noctalia/
+nix/
+
+{{    else if eq .chezmoi.osRelease.id "fedora" }}
 
 .config/niri/
 .config/noctalia/
