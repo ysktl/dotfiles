@@ -1,0 +1,109 @@
+
+### Zinit ###
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+
+if [[ ! -d $ZINIT_HOME ]]; then
+  mkdir -p "$(dirname $ZINIT_HOME)"
+  git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
+
+source "${ZINIT_HOME}/zinit.zsh"
+
+# syntax highlight
+zinit light zsh-users/zsh-syntax-highlighting
+
+# autosuggestions
+zinit light zsh-users/zsh-autosuggestions
+
+# completions
+zinit light zsh-users/zsh-completions
+
+zinit ice wait lucid
+zinit light zsh-users/zsh-syntax-highlighting
+
+zinit ice wait lucid
+zinit light zsh-users/zsh-autosuggestions
+
+
+# コマンドの履歴機能
+# 履歴ファイルの保存先
+HISTFILE=$HOME/.zsh_history
+# メモリに保存される履歴の件数
+HISTSIZE=10000
+# HISTFILE で指定したファイルに保存される履歴の件数
+SAVEHIST=10000
+
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+bindkey -e
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/ysktl/.zshrc'
+
+autoload -Uz compinit
+compinit
+
+# End of lines added by compinstall
+
+export VISUAL="nvim"
+export EDITOR="$VISUAL"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
+
+source $HOME/.config/zsh/aliases.zsh
+
+# Cargo/Rust
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# Golang
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
+# mise
+export PATH="$HOME/.local/bin/mise:$PATH"
+eval "$(mise activate zsh)"
+
+# Coursier (Scala)
+export PATH="$HOME/.local/share/coursier/bin:$PATH"
+
+# JDK
+export JAVA_HOME=/usr/lib/jvm/temurin-25-jdk-amd64
+
+# opencode
+export PATH=/home/ysktl/.opencode/bin:$PATH
+
+
+### Added by Zinit's installer
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
+fi
+
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+# --------- END of Line ----------
+# Startship
+eval "$(starship init zsh)"
+
+# >>> scala-cli completions >>>
+fpath=("/home/ysktl/.local/share/scalacli/completions/zsh" $fpath)
+compinit
+# <<< scala-cli completions <<<
+### End of Zinit's installer chunk
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
+
+### End of Zinit's installer chunk

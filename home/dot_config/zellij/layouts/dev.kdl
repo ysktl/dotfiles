@@ -1,0 +1,43 @@
+layout {
+  tab name="Main" {
+    pane size=1 borderless=true {
+      plugin location="zellij:compact-bar"
+    }
+    pane split_direction="vertical" {
+      pane command="nvim"
+      pane split_direction="horizontal" {
+        pane command="lazygit"
+        pane
+      }
+    }
+    pane size=1 borderless=true {
+      plugin location="zellij:status-bar"
+    }
+  }
+  tab name="Docker" {
+    pane size=1 borderless=true {
+      plugin location="zellij:compact-bar"
+    }
+    pane split_direction="vertical" {
+      pane command="oxker"
+      pane size="30%" split_direction="horizontal" {
+        pane
+        pane
+      }
+    }
+    pane size=1 borderless=true {
+      plugin location="zellij:status-bar"
+    }
+  }
+  tab name="Logs" {
+    pane size=1 borderless=true {
+      plugin location="zellij:compact-bar"
+    }
+    pane split_direction="vertical" {
+      pane 
+    }
+    pane size=1 borderless=true {
+      plugin location="zellij:status-bar"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{{ if (eq .chezmoi.os "linux") }}
+{{    if eq .distro "debian" }}
+
+.config/fcitx5/
+.config/ghostty/
+.config/niri/
+.config/noctalia/
+
+{{    else if eq .distro "arch" }}
+
+nix/
+
+{{    else if eq .distro "fedora" }}
+
+.config/niri/
+.config/noctalia/
+nix/
+
+{{    else if eq .distro "opensuse*" }}
+
+.config/niri/
+.config/noctalia/
+nix/
+
+{{    end }}
+{{ end }}
+

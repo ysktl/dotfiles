@@ -1,0 +1,61 @@
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - task --list-all
+    silent: true
+
+  # unsafe_prune:
+  #   cmds:
+  #     - podman container prune --force
+  #
+  # unsafe_reset:
+  #   cmds:
+  #     - podman system reset --force
+
+  nim:
+    vars:
+      NIM_IMAGE: docker.io/nimlang/nim:latest
+    cmds:
+      - podman run -it -v "$(pwd)":/usr/src/app {{.NIM_IMAGE}}
+
+  nix:
+    vars:
+      NIX_IMAGE: docker.io/nixos/nix:latest
+    cmds:
+      - podman run -it -v "$(pwd)":/usr/src/app {{.NIX_IMAGE}}
+
+  _create_gentoo_volume:
+    internal: true
+    cmds:
+      - podman volume inspect gentoo_portage > /dev/null 2>&1 || podman volume create gentoo_portage
+
+  gentoo:
+    vars:
+      GENTOO_PORTAGE_IMAGE: docker.io/gentoo/portage:latest
+      GENTOO_STAGE3_IMAGE: docker.io/gentoo/stage3:latest
+    deps:
+      - _create_gentoo_volume
+    cmds:
+      - podman run -v gentoo_portage:/var/db/repos/gentoo {{.GENTOO_PORTAGE_IMAGE}}
+      - podman run -it --device /sys/bus/usb:/sys/bus/usb -v gentoo_portage:/var/db/repos/gentoo {{.GENTOO_STAGE3_IMAGE}} /bin/bash
+
+  slackware:
+    vars:
+      SLACKWARE_IMAGE: docker.io/sclemons/slackware:latest
+    cmds:
+      - podman run -it -v "$(pwd)":/usr/src/app {{.SLACKWARE_IMAGE}}
+
+  kali:
+    vars:
+      KALI_IMAGE: docker.io/kalilinux/kali-rolling:latest
+    cmds:
+      - podman run -it -v "(pwd)":/usr/src/app {{.KALI_IMAGE}}
+
+  mailpit:
+    vars:
+      MAILPIT_IMAGE: docker.io/axllent/mailpit:latest
+    cmds:
+      - podman run -it --rm {{.MAILPIT_IMAGE}}
+
