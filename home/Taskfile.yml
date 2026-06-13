@@ -43,7 +43,7 @@ tasks:
     vars:
       KALI_IMAGE: docker.io/kalilinux/kali-rolling:latest
     cmds:
-      - podman run -it -v "(pwd)":/usr/src/app {{.KALI_IMAGE}}
+      - podman run -it -v "$(pwd)":/usr/src/app {{.KALI_IMAGE}}
 
   trivy:
     desc: Scan container image
@@ -53,6 +53,13 @@ tasks:
       TRIVY_IMAGE: docker.io/aquasec/trivy:latest
     cmds:
       - podman run {{.TRIVY_IMAGE}} image {{.CLI_ARGS}}
+
+  k6:
+    desc: Load test website with script.js
+    vars:
+      K6_IMAGE: docker.io/grafana/k6:latest
+    cmds:
+      - podman run --rm -u $(id -u) -v "$(pwd)":/app -w /app -i {{.K6_IMAGE}} run - <script.js
 
   mailpit:
     vars:
