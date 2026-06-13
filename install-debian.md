@@ -36,4 +36,5 @@ EOF
 ```
 
 20. `sudo mount --make-rshared /`
+21. `sudo echo 'unqualified-search-registries = ["docker.io"]' | sudo tee /etc/containers/registries.conf`
 
