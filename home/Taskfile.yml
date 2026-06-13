@@ -6,14 +6,6 @@ tasks:
       - task --list-all
     silent: true
 
-  # unsafe_prune:
-  #   cmds:
-  #     - podman container prune --force
-  #
-  # unsafe_reset:
-  #   cmds:
-  #     - podman system reset --force
-
   nim:
     vars:
       NIM_IMAGE: docker.io/nimlang/nim:latest
@@ -39,7 +31,7 @@ tasks:
       - _create_gentoo_volume
     cmds:
       - podman run -v gentoo_portage:/var/db/repos/gentoo {{.GENTOO_PORTAGE_IMAGE}}
-      - podman run -it --device /sys/bus/usb:/sys/bus/usb -v gentoo_portage:/var/db/repos/gentoo {{.GENTOO_STAGE3_IMAGE}} /bin/bash
+      - podman run -it -v gentoo_portage:/var/db/repos/gentoo {{.GENTOO_STAGE3_IMAGE}} /bin/bash
 
   slackware:
     vars:
