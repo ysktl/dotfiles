@@ -61,6 +61,20 @@ tasks:
     cmds:
       - podman run --rm -u $(id -u) -v "$(pwd)":/app -w /app -i {{.K6_IMAGE}} run - <script.js
 
+  mockserver:start:
+    desc: Start mockserver at http://localhost:1080/mockserver/dashboard
+    vars:
+      MOCKSERVER_IMAGE: docker.io/mockserver/mockserver:latest
+    cmds:
+      - podman run -d --rm --name mockserver -p 1080:1080 {{.MOCKSERVER_IMAGE}}
+
+  mockserver:stop:
+    desc: Stop mockserver
+    vars:
+      MOCKSERVER_IMAGE: docker.io/mockserver/mockserver:latest
+    cmds:
+      - podman stop mockserver
+
   mailpit:
     vars:
       MAILPIT_IMAGE: docker.io/axllent/mailpit:latest
