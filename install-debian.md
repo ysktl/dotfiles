@@ -1,6 +1,6 @@
-# My dotfiles
+# Debian dotfiles
 
-## Installation for Debian on WSL
+## Install
 
 1. `sudo apt install -y curl wget git gh vim zsh xz-utils libatomic1 make cmake keychain uidmap usbutils dbus-user-session`
 2. `sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply ysktl`

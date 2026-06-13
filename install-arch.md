@@ -1,8 +1,6 @@
-# My dotfiles for ArchLinux on VM
+# ArchLinux dotfiles
 
-## Setup bedore install
-
-### BIOS
+## BIOS
 - `archinstall`
     - 日本のミラーサーバーを指定
     - パーティションはext4
