@@ -45,6 +45,15 @@ tasks:
     cmds:
       - podman run -it -v "(pwd)":/usr/src/app {{.KALI_IMAGE}}
 
+  trivy:
+    desc: Scan container image
+    summary: |
+      For example: t trivy -- python:3.4-alpine
+    vars:
+      TRIVY_IMAGE: docker.io/aquasec/trivy:latest
+    cmds:
+      - podman run {{.TRIVY_IMAGE}} image {{.CLI_ARGS}}
+
   mailpit:
     vars:
       MAILPIT_IMAGE: docker.io/axllent/mailpit:latest
