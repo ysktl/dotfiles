@@ -33,7 +33,7 @@
 
 ### SDDM theme
 
-- (Refer to the Document)[https://github.com/ysktl/simple_sddm_2_roman]
+- [Refer to the Document](https://github.com/ysktl/simple_sddm_2_roman)
 
 ### packages
 
