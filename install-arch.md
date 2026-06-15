@@ -15,6 +15,7 @@
 2. `sudo pacman -S --needed base-devel`
 3. `git clone https://aur.archlinux.org/paru.git`
 4. `cd paru && makepkg -si`
+5. `sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply ysktl`
 
 ### bootloader
 
@@ -29,6 +30,10 @@
   - `GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet splash udev.log-priority=3"`
 8. `sudo update-grub`
 9. 再起動
+
+### SDDM theme
+
+- (Refer to the Document)[https://github.com/ysktl/simple_sddm_2_roman]
 
 ### packages
 
