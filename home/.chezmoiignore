@@ -10,19 +10,19 @@
 
 nix/
 
-{{    else if eq .chezmoi.osRelease.id "fedora" }}
-
-.config/niri/
-.config/noctalia/
-nix/
-
-{{    else if eq .chezmoi.osRelease.id "opensuse*" }}
+{{    else if eq .chezmoi.osRelease.id "opensuse-tumbleweed" }}
 
 .config/niri/
 .config/noctalia/
 nix/
 
 {{    else if eq .chezmoi.osRelease.id "fedora" }}
+
+.config/niri/
+.config/noctalia/
+nix/
+
+{{    else if eq .chezmoi.osRelease.id "void" }}
 
 .config/niri/
 .config/noctalia/
