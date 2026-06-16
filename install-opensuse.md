@@ -12,7 +12,7 @@
 8. `chsh -s $(which zsh)`
 9. `rustup default nightly`
 10. `curl https://mise.run | sh`
-11. `mise use -g node npm bun deno uv pkl`
+11. `mise use -g node npm bun deno uv pkl k9s`
 12. `git clone https://github.com/ysktl/nvim.git ~/.config/nvim/`
 13. 再起動
 

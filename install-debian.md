@@ -18,7 +18,7 @@
 14. `cd ~/nix && home-manager switch --flake .`
 15. `rustup default nightly`
 16. `git clone https://github.com/ysktl/nvim.git ~/.config/nvim/`
-17. `mise use -g node npm bun deno uv pkl`
+17. `mise use -g node npm bun deno uv pkl k9s`
 18. `systemctl start dbus --user`
 19. `sudo mkdir -p /etc/containers`
 

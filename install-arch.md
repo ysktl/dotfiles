@@ -43,7 +43,7 @@
 4. `chsh -s $(which zsh)`
 5. `rustup default nightly`
 6. `curl https://mise.run | sh`
-7. `mise use -g node npm bun deno uv pkl`
+7. `mise use -g node npm bun deno uv pkl k9s`
 8. `sudo echo "ja_JP.UTF-8 UTF-8" | sudo tee /etc/locale.gen`
 9. `sudo locale-gen`
 10. `fc-cache -fv`
