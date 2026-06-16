@@ -4,13 +4,16 @@
 
 source /etc/os-release
 
+echo "Initializing installation...."
+
 if [ "$ID" == "debian" ]; then
-  if command -v nix-channel >/dev/null 2>&1; then
+  if ! command -v nix-channel >/dev/null 2>&1; then
     sudo apt install -y curl wget git gh vim zsh xz-utils libatomic1 make cmake keychain uidmap usbutils dbus-user-session
     sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --daemon
     echo "Installed nix, Run ./install.sh again after restarting"
     exit 0
   else
+    echo "Found nix command, Installing packages..."
     nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
     nix-channel --update
     nix-shell '<home-manager>' -A install
@@ -39,12 +42,13 @@ else if [ "$ID" == "void" ]; then
 
 fi
 
-# Chezmoi
-
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply ysktl
+echo "Finished initializing."
 
 # Common
 
+echo "Starting common packages installation..."
+
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply ysktl
 bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
 curl -sS https://starship.rs/install.sh | sh
 chsh -s $(which zsh)
@@ -72,10 +76,11 @@ select font_name in "${fons_list[@]}" "Quit";
         fc-cache -fv
       fi
     else
-      echo "curl command not found"
-      break
+      echo "curl command not found."
+      exit 127
     fi
   done
 
-echo "All Install Completed."
+echo "All installation completed."
+exit 0
 
