@@ -27,6 +27,7 @@
     go-task
     nerd-fonts.go-mono
     nerd-fonts.hack
+    jujutsu
   ];
   
   home.stateVersion = "26.05";
