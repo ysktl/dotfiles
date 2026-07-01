@@ -59,6 +59,7 @@ git clone https://github.com/ysktl/nvim.git ~/.config/nvim/
 sudo echo "ja_JP.UTF-8 UTF-8" | sudo tee /etc/locale.gen
 sudo locale-gen
 fc-cache -fv
+curl -fsSL https://herdr.dev/install.sh | sh
 
 # Nerd fonts
 

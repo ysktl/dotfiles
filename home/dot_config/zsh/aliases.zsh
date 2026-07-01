@@ -10,6 +10,7 @@ alias p='podman'
 alias pc-'podman-compose'
 alias oc='opencode'
 alias c='chezmoi'
+alias h='herdr'
 alias t='task -g'
 alias trail='
   mkdir -p traildepot && \
