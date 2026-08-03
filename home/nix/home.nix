@@ -13,7 +13,6 @@
     neovim
     lazygit
     yazi
-    zellij
     rustup
     go
     uv

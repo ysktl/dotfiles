@@ -31,11 +31,11 @@ else if [ "$ID" == "arch" ]; then
   sudo pacman -S --noconfirm git vim github-cli base-devel
   git clone https://aur.archlinux.org/paru.git
   cd paru && makepkg -si
-  paru -S --noconfirm neovim noctalia-shell zsh rustup ghostty zed helium-browser-bin zellij-git yazi lazygit fcitx5-im fcitx5-mozc noto-fonts-cjk wl-clipboard jujutsu lazyjj
+  paru -S --noconfirm neovim noctalia-shell zsh rustup ghostty zed helium-browser-bin yazi lazygit fcitx5-im fcitx5-mozc noto-fonts-cjk wl-clipboard jujutsu lazyjj
 else if [ "$ID" == "opensuse-tumbleweed" ]; then
   sudo zypper addrepo https://download.opensuse.org/repositories/home:itachi_re/openSUSE_Tumbleweed/home:itachi_re.repo
   sudo zypper refresh
-  sudo zypper install lua51-lpeg git vim gh neovim zsh rustup zellij yazi lazygit ghostty fcitx5-mozc
+  sudo zypper install lua51-lpeg git vim gh neovim zsh rustup yazi lazygit ghostty fcitx5-mozc
 else if [ "$ID" == "ferdora" ]; then
 
 else if [ "$ID" == "void" ]; then
@@ -60,6 +60,7 @@ sudo echo "ja_JP.UTF-8 UTF-8" | sudo tee /etc/locale.gen
 sudo locale-gen
 fc-cache -fv
 curl -fsSL https://herdr.dev/install.sh | sh
+bash <(curl -L https://zellij.dev/launch)
 
 # Nerd fonts
 
