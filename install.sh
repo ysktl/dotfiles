@@ -56,13 +56,38 @@ chsh -s $(command -v zsh)
 rustup default nightly
 curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash
 curl https://mise.run | sh
-mise use -g node npm bun deno uv pkl k9s
+mise use -g node npm bun pnpm deno uv pkl k9s
 git clone https://github.com/ysktl/nvim.git ~/.config/nvim/
 echo "ja_JP.UTF-8 UTF-8" | sudo tee /etc/locale.gen
 sudo locale-gen
 fc-cache -fv
 curl -fsSL https://herdr.dev/install.sh | sh
 cargo install --locked zellij
+
+# LSP, fmt, linter
+
+npm install -g '@tsrx/language-server' js-beautify markdownlint-cli2 prettier @fsouza/prettierd tombi bash-language-server
+
+uv tool install ansible-dev-tools
+uv tool install black
+uv tool install ruff
+uv tool install pylint
+uv tool install flake8
+uv tool install isort
+uv tool install "shandy-sqlfmt[jinjafmt]"
+uv tool install sqruff
+uv tool install python-lsp-server
+
+go install github.com/cockroachdb/crlfmt@latest
+go install github.com/reteps/dockerfmt@latest
+go install golang.org/x/tools/cmd/goimports@latest
+go install github.com/google/yamlfmt/cmd/yamlfmt@latest
+go install golang.org/x/tools/gopls@latest
+
+cargo install stylua
+cargo install --locked --git https://github.com/Feel-ix-343/markdown-oxide.git markdown-oxide
+
+mise use -g aqua:LuaLS/lua-language-server
 
 # Nerd fonts
 

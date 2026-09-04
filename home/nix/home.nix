@@ -21,12 +21,19 @@
     openssh
     ansible
     opentofu
+    terraform
     podman
     podman-compose
     go-task
     nerd-fonts.go-mono
     nerd-fonts.hack
     jujutsu
+    libclang
+    cmake
+    cmake-lint
+    cmake-format
+    pgformatter
+    luarocks
   ];
   
   home.stateVersion = "26.05";
