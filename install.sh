@@ -50,7 +50,6 @@ echo "Finished initializing."
 
 echo "Starting common packages installation..."
 
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply ysktl
 bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
 curl -sS https://starship.rs/install.sh | sh
 chsh -s $(command -v zsh)
