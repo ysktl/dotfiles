@@ -69,6 +69,7 @@ cargo install --locked zellij
 npm install -g '@tsrx/language-server' js-beautify markdownlint-cli2 prettier @fsouza/prettierd tombi bash-language-server
 
 uv tool install ansible-dev-tools
+uv tool install ansible-lint
 uv tool install black
 uv tool install ruff
 uv tool install pylint
