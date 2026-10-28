@@ -50,6 +50,7 @@ echo "Finished initializing."
 
 echo "Starting common packages installation..."
 
+curl -fsSL https://raw.githubusercontent.com/Giammarco-Ferranti/deja/main/install.sh | sh
 bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
 curl -sS https://starship.rs/install.sh | sh
 chsh -s $(command -v zsh)

@@ -13,8 +13,8 @@ source "${ZINIT_HOME}/zinit.zsh"
 zinit light zsh-users/zsh-syntax-highlighting
 
 # autosuggestions
-zinit light zsh-users/zsh-autosuggestions
-ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
+zinit ice wait"0" lucid depth=1 pick"deja.plugin.zsh"
+zinit light Giammarco-Ferranti/deja
 
 # completions
 zinit light zsh-users/zsh-completions
