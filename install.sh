@@ -64,9 +64,9 @@ sudo locale-gen
 fc-cache -fv
 curl -fsSL https://herdr.dev/install.sh | sh
 cargo install --locked zellij
+npm add --global nx
 
 # LSP, fmt, linter
-
 npm install -g '@tsrx/language-server' js-beautify markdownlint-cli2 prettier @fsouza/prettierd tombi bash-language-server
 
 uv tool install ansible-dev-tools
