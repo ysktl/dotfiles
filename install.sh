@@ -57,7 +57,7 @@ chsh -s $(command -v zsh)
 rustup default nightly
 curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash
 curl https://mise.run | sh
-mise use -g node npm bun pnpm deno uv pkl k9s
+mise use -g node npm bun pnpm yarn viteplus deno uv pkl k9s
 git clone https://github.com/ysktl/nvim.git ~/.config/nvim/
 echo "ja_JP.UTF-8 UTF-8" | sudo tee /etc/locale.gen
 sudo locale-gen
