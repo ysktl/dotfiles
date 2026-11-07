@@ -17,7 +17,6 @@
     go
     uv
     mise
-    opencode
     openssh
     ansible
     opentofu
